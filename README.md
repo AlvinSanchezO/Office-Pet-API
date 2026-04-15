@@ -11,8 +11,6 @@
 - 🐾 Gestión de mascotas
 - 🗄️ Base de datos PostgreSQL con Prisma ORM
 - 📚 Documentación Swagger automática
-- ✔️ Validación de datos con class-validator
-- 🧪 Pruebas unitarias e integración con Jest
 
 ---
 

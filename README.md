@@ -158,34 +158,6 @@ npm run start:prod
 
 ---
 
-## Pruebas
-
-### Ejecutar todas las pruebas
-
-```bash
-npm run test
-```
-
-### Pruebas en modo watch (re-ejecutan cuando cambias archivos)
-
-```bash
-npm run test:watch
-```
-
-### Pruebas con cobertura
-
-```bash
-npm run test:cov
-```
-
-### Pruebas end-to-end (E2E)
-
-```bash
-npm run test:e2e
-```
-
----
-
 ## Estructura del Proyecto
 
 ```
@@ -243,20 +215,6 @@ http://localhost:3000/api/docs
 
 ---
 
-## Linting y Formato de Código
-
-### Ejecutar ESLint
-
-```bash
-npm run lint
-```
-
-### Formatear código con Prettier
-
-```bash
-npm run format
-```
-
 ---
 
 ## Compilación
@@ -302,10 +260,6 @@ npx prisma db push        # Sincronizar esquema con BD
 
 ---
 
-## Variables de Entorno para Pruebas
-
-Para ejecutar pruebas, asegúrate que `.env` está configurado correctamente. Las pruebas usarán la configuración de `test/jest-e2e.json`.
-
 ---
 
 ## Contribuir
@@ -330,7 +284,7 @@ Este proyecto está bajo la licencia UNLICENSED.
 
 ## Contacto
 
-- 📧 Email: [tu-email@example.com]
+- 📧 Email: [alvinsanchezcontacto@gmail.com]
 - 🐙 GitHub: [@AlvinSanchezO](https://github.com/AlvinSanchezO)
 
 ---
@@ -343,32 +297,6 @@ Este proyecto está bajo la licencia UNLICENSED.
 - [JWT.io](https://jwt.io/)
 
 ---
-
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
 ## Resources
 

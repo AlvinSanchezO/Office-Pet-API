@@ -230,6 +230,131 @@ http://localhost:3000/api/docs
 
 ---
 
+## Uso de la API
+
+La API se puede probar fácilmente usando **Postman**. Importa la colección desde la documentación Swagger o configura manualmente los requests. A continuación, ejemplos paso a paso para operaciones comunes.
+
+### 1. Autenticación
+
+#### Iniciar Sesión (POST /auth/login)
+
+- **Método**: POST
+- **URL**: `http://localhost:3000/auth/login`
+- **Headers**: 
+  - Content-Type: application/json
+- **Body** (raw JSON):
+  ```json
+  {
+    "email": "empleado@oficina.com",
+    "password": "password123"
+  }
+  ```
+- **Respuesta esperada**: Token JWT en `access_token`. Guárdalo para requests autenticados.
+
+### 2. Gestión de Propietarios
+
+#### Crear Propietario (POST /owners)
+
+- **Método**: POST
+- **URL**: `http://localhost:3000/owners`
+- **Headers**: 
+  - Content-Type: application/json
+- **Body** (raw JSON):
+  ```json
+  {
+    "name": "Juan Pérez",
+    "email": "juan@oficina.com",
+    "password": "securePass123",
+    "department": "IT"
+  }
+  ```
+- **Respuesta**: Datos del propietario creado.
+
+#### Obtener Todos los Propietarios (GET /owners)
+
+- **Método**: GET
+- **URL**: `http://localhost:3000/owners`
+- **Headers**: 
+  - Authorization: Bearer <tu_token_jwt>
+- **Respuesta**: Lista de propietarios con sus mascotas.
+
+#### Actualizar Propietario (PATCH /owners/:id)
+
+- **Método**: PATCH
+- **URL**: `http://localhost:3000/owners/{id}` (reemplaza {id} con el ID real)
+- **Headers**: 
+  - Authorization: Bearer <tu_token_jwt>
+  - Content-Type: application/json
+- **Body** (raw JSON):
+  ```json
+  {
+    "name": "Juan Pérez Actualizado"
+  }
+  ```
+
+#### Eliminar Propietario (DELETE /owners/:id)
+
+- **Método**: DELETE
+- **URL**: `http://localhost:3000/owners/{id}`
+- **Headers**: 
+  - Authorization: Bearer <tu_token_jwt>
+
+### 3. Gestión de Mascotas
+
+#### Crear Mascota (POST /pets)
+
+- **Método**: POST
+- **URL**: `http://localhost:3000/pets`
+- **Headers**: 
+  - Authorization: Bearer <tu_token_jwt>
+  - Content-Type: application/json
+- **Body** (raw JSON):
+  ```json
+  {
+    "name": "Firulais",
+    "species": "DOG",
+    "breed": "Golden Retriever",
+    "ownerId": "uuid-del-propietario"
+  }
+  ```
+- **Nota**: `ownerId` debe ser un UUID válido de un propietario existente.
+
+#### Obtener Todas las Mascotas (GET /pets)
+
+- **Método**: GET
+- **URL**: `http://localhost:3000/pets`
+- **Headers**: 
+  - Authorization: Bearer <tu_token_jwt>
+- **Respuesta**: Lista de mascotas con información de propietarios.
+
+#### Actualizar Mascota (PATCH /pets/:id)
+
+- **Método**: PATCH
+- **URL**: `http://localhost:3000/pets/{id}`
+- **Headers**: 
+  - Authorization: Bearer <tu_token_jwt>
+  - Content-Type: application/json
+- **Body** (raw JSON):
+  ```json
+  {
+    "name": "Firulais Jr."
+  }
+  ```
+
+#### Eliminar Mascota (DELETE /pets/:id)
+
+- **Método**: DELETE
+- **URL**: `http://localhost:3000/pets/{id}`
+- **Headers**: 
+  - Authorization: Bearer <tu_token_jwt>
+
+### Consejos para Postman
+
+- Crea una colección llamada "Office Pets API".
+- Usa variables de entorno en Postman para el token JWT (ej. `{{jwt_token}}`).
+- Después del login, configura una prueba (Tests) para guardar el token: `pm.environment.set("jwt_token", pm.response.json().access_token);`.
+- Para IDs dinámicos, usa variables o copia de respuestas anteriores.
+
 ---
 
 ## Compilación

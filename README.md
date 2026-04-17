@@ -14,6 +14,23 @@
 - ✔️ Validación de datos con class-validator
 - 🧪 Pruebas unitarias e integración con Jest
 
+## Arquitectura del Proyecto
+
+El proyecto está estructurado en módulos siguiendo la arquitectura de NestJS:
+
+- **auth**: Maneja la autenticación y autorización usando JWT. Incluye controladores para login, guards para proteger rutas, y DTOs para validación.
+- **owners**: Gestiona los propietarios de mascotas. Contiene controladores para operaciones CRUD, servicios para lógica de negocio, DTOs para requests, y entidades para modelos de datos.
+- **pets**: Similar a owners, pero para mascotas. Incluye relaciones con propietarios.
+- **prisma**: Proporciona el servicio de base de datos usando Prisma ORM para consultas y migraciones.
+
+Las capas se organizan así:
+- **Controladores**: Manejan las rutas HTTP y delegan a servicios.
+- **Servicios**: Contienen la lógica de negocio.
+- **DTOs**: Definen la estructura y validación de datos de entrada/salida.
+- **Entidades**: Representan los modelos de datos (usados con Prisma).
+
+Esto asegura separación de responsabilidades y mantenibilidad.
+
 ---
 
 ## Requisitos Previos
